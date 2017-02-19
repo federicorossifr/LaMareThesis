@@ -1,1 +1,1 @@
-LaMareThesis
+LaTex sources for Bachelor's degree Thesis.
