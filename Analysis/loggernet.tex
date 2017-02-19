@@ -1,0 +1,18 @@
+\subsection{Loggernet remote server}
+\label{subsec:loggernet}
+\paragraph{Adding and configuring devices}
+Loggernet provides functions to add and configure a Campbell Scientific device to a network of devices. A device can be added specifying the interface used for the connection (e.g. serial port or radio medium) and its address within the network, then CRBASIC programs can be flashed using Loggernet. Moreover tables stored in device's memory can be selected for remote data fetching.
+\paragraph{On the Internet stack}
+If we look at the infrastructure at this point of the analysis we can see the application layer (Loggernet), data link layer (Iridium satellite communication) and physical layer (radio/satellite). The two remaining layers (transport and network) are a custom implementation by Campbell Scientific, called PakBus protocol family.
+\paragraph{PakBus protocol \cite{cmp2}}
+The PakBus protocol is similar to TCP/IP. PakBus provides the following services:
+\begin{itemize}
+    \item Auto-discovery of the network topology
+    \item Communication between datalogger endpoints (including Loggernet)
+\end{itemize}
+\paragraph{}
+Every device can be assigned a {\tt12 bit} address that identifies the datalogger in the PakBus network. Management software are identified by address {\tt >=4000} (particularly Loggernet server has address {\tt 4094}).
+\paragraph{}
+Every packet has an header containing control information like {\tt SenderAddr, ReceiverAddr and MessageType}, a message body containing data payload and a message trailer used for error checking.
+\paragraph{Data fetching}
+Once datalogger is configured into Loggernet, messages can be exchanged between the two endpoints. PakBus protocol's {\tt MessageType} field contains information about the instruction requested by the sending host. Thus Loggernet can ask datalogger to send back its data table definition and the operator can mark one or more of them for data fetch. Now, another message from Loggernet can finally fetch data from remote datalogger.

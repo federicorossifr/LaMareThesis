@@ -1,0 +1,105 @@
+\subsection{Data Table Definition}
+The following piece of code shows the definition of a data table.
+As underlined by {\tt DataInterval} directive, the first data table is stored every 15 minutes, while the second is stored every 60 minutes.
+\begin{lstlisting}
+DataTable(Table1,True,-1)
+	DataInterval(0,15,Min,10)
+	Average(1,RGup,FP2,False)
+	Average(1,RGdown,FP2,False)
+	Average(1,AirTC,FP2,False)
+	Average(1,RH,FP2,False)
+	WindVector (1,Vvento,DirVento,FP2,False,0,0,2)
+	FieldNames("Vvento_S_WVT,Vvento_U_WVT,DirVento_DU_WVT
+	           ,DirVento_SDU_WVT")
+	Average(1,IRup,FP2,False)
+	Average(1,IRdown,FP2,False)
+	Average(1,IRupc,FP2,False)
+	Average(1,IRdownc,FP2,False)
+	Average(1,T107_1,FP2,False)
+	Average(1,T107_2,FP2,False)
+	Average(1,Thmp45,IEEE4,0)
+	Average(1,URhmp45,IEEE4,0)
+	Sample(1,Status.SW12Volts(1,1),Boolean)
+EndTable
+
+DataTable(Table2,True,-1)
+	DataInterval(0,60,Min,10)
+	Minimum(1,Batt_Volt,FP2,False,False)
+	Sample(1,DT,FP2)
+EndTable
+\end{lstlisting}
+\clearpage
+\subsection{Swithing modem on}
+The following code shows how the hysteresis control is applied to decide whether the modem can be swtiched on or not.
+\begin{lstlisting}
+Dim lowBatTh As Float = 11.50
+Dim highBatTh As Float = 13.20
+
+Sub PowerOn
+battPowerOnVoltage = Batt_Volt
+ If (battPowerOnVoltage < lowBatTh) Then
+  powerOnFlag = 0
+  Else If (battPowerOnVoltage > highBatTh OR 
+          ((battPowerOnVoltage >= lowBatTh) AND powerOnFlag)) Then
+   SW12(1)
+   powerOnFlag = 1
+ EndIf
+EndSub
+\end{lstlisting}
+\subsection{Retrieving data from sensors}
+The following code shows the instructions given to the datalogger in order to retrieve data from sensors. Every 60 seconds (specified by the instruction {\tt Scan} the datalogger read measurements from sensors and store them in data table with the instruction {\tt CallTable}
+\begin{lstlisting}
+Scan(60,Sec,1,0)
+    RealTime(rTime) 
+
+    VoltSe(Thmp45,1,mV2500,13,0,0,_50Hz,0.1,-40)
+    VoltSe(URhmp45,1,mV2500,14,0,0,_50Hz,0.1,0)
+    If URhmp45 >100 Then URhmp45=100
+    
+    Battery(Batt_Volt)    
+
+    'Pyranometer measurements Solar_kJ and RGup:
+		VoltDiff(RGup,1,mv25,1,True,0,_50Hz,1,0)
+		If RGup<0 Then RGup=0
+		Solar_kJ=RGup*7.46268
+		RGup=RGup*124.378
+		
+    'Pyranometer measurements Solar_k_2 and RGdown:
+		VoltDiff(RGdown,1,mv25,2,True,0,_50Hz,1,0)
+		If RGdown<0 Then RGdown=0
+		Solar_k_2=RGdown*7.46268
+		RGdown=RGdown*124.378
+		
+    'CS215 Temperature & Relative Humidity Sensor 
+		SDI12Recorder(AirTC,1,"0","M!",1,0)
+		
+    
+    '05103 Wind Speed & Direction Sensor
+		PulseCount(Vvento,1,1,1,1,0.098,0)
+		BrHalf(DirVento,1,mV2500,5,1,1,2500,True,0,_50Hz,355,0)
+		If DirVento>=360 Then DirVento=0
+		
+    'Every 60 minutes read Sonic Ranging Sensor
+    If TimeIntoInterval(0,60,Min) Then
+    'SR50 Sonic Ranging Sensor
+		SDI12Recorder(DT,7,"0","M!",100.0,0)
+		TCDT=DT*SQR((AirTC+273.15)/273.15)
+		EndIf
+    
+    'Wiring Panel Temperature measurement TCR1000:
+		PanelTemp(TCR1000,_50Hz)
+		
+    'Generic Differential Voltage measurements IRup:
+		VoltDiff(IRup,1,mV25,4,True,0,_50Hz,86.881,0.0)
+		'Generic Differential Voltage measurements IRdown:
+		VoltDiff(IRdown,1,mV25,5,True,0,_50Hz,118.2,0.0)
+		
+    '/*****************************/
+    .......
+    '/*****************************/
+   	
+    'Call Data Tables and Store Data
+		CallTable(Table1)
+		CallTable(Table2)
+NextScan
+\end{lstlisting}

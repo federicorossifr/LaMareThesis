@@ -1,0 +1,7 @@
+\subsection{Satellite communication}
+\paragraph{Iridium}
+The satellite infrastructure is provided by Iridium Satellite Communications that offers a dense constellation of satellites providing an high available service within optimal weather conditions.
+\paragraph{Michrosat modem}
+The datalogger can access this infrastructure using a Michrosat 2403 dedicated modem powered  by one of its 12V port. The modem is associated with a "phone" number and a SIM able to receive calls. Because of the high power consumption the modem is duty-cycled, being switched on only for a few time during the day. Moreover, the modem is not switched on if the battery voltage level of the datalogger is ${\tt V_{BATTERY} \leq LOW}$ and not turned on until it's above ${\tt V_{BATTERY} \geq HIGH}$ using a hysteresis control of the modem. \cite{avv1}
+\paragraph{The other endpoint}
+On the other side of the satellite connection, there is a so-called reference station that makes calls to datalogger's modem number and establishes satellite connection between these two endpoints. Those calls are scheduled using the Loggernet application in order to match duty cycles of datalogger's modem.

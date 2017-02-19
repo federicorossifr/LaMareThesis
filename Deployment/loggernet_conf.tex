@@ -1,0 +1,40 @@
+\subsection{Configuring device into local Loggernet}
+\paragraph{}
+Connection in local environment is accomplished by a serial RS232 serial connection.
+\paragraph{Serial link requirements}
+To connect device via serial link user has to install a driver for the serial-to-USB adapter, that can be downloaded from \cite{prol1}.
+\paragraph{Adding device to Loggernet}
+Once the device is connected, user can now open Loggernet and click on {\tt Set-up} in {\tt Main} tab. If it's the first time running Loggernet, it will open the {\tt EZSetup Wizard}, 
+otherwise user has to click on {\tt Add} button located in the tool-bar.
+\begin{enumerate}
+	\item In {\tt Communication Set-up} section choose CR1000 and go to the next step.
+	\item Then choose connection type ({\tt Direct} if serial or {\tt Phone Modem} if Satellite)
+	\item Then follow instructions on program to find the correct COM port (and satellite SIM number if using satellite connection) to connect with
+	\item Skip {\tt Datalogger settings}  by pressing Next, if using standard parameters (potentially set baud rate at {\tt 9600}).
+	\item Check selected parameters in {\tt Set-up summary}
+	\item Verify parameters in {\tt Communication Test}
+	\item If test passes press {\tt Finish}
+\end{enumerate}
+\paragraph{}
+Added device can now be seen by pressing {\tt Set-up} in {\tt Main} tab.
+
+\subsection{Configuring device into remote Loggernet}
+\paragraph{}
+Connection from remote environment is accomplished by using the satellite connection infrastructure explained in section \ref{subsec:loggernet}.
+Locally, connect CR1000 to modem as shown in section \ref{subsec:datacable}.
+\paragraph{}
+To add a device to remote Loggernet:
+\begin{enumerate}
+	\item Open remote desktop connection as shown in section \ref{subsec:rdp} and start Loggernet if stopped.
+	\item Click on {\tt Set-up} in {\tt Main} tab.
+	\item Click on {\tt Add Root} on the tool-bar and select {\tt ComPort}.
+	\item In the {\tt Network map} below, click on the just added ComPort and on the right select in {\tt ComPort Connection} {\tt FabulaTech Serial Port Redirector}. Below set {\tt Delay Hangup} at {\tt 500ms} and {\tt Communication Delay} at {\tt 2s}.
+	\item In the {\tt Network map} right-click on the ComPort and select {\tt PhoneBase}.
+	\item Click on the PhoneBase added and set {\tt Maximum baud rate} at {\tt 9600}, {\tt Response Time} at {\tt 2s} and {\tt Delay Hangup} at {\tt 500ms}.
+	\item Right-click on the PhoneBase and select {\tt PhoneRemote}.
+	\item Click on the PhoneRemote added and add the SIM phone number of the CR1000 modem with a delay of {\tt 500ms}.
+	\item Right-click on PhoneRemote and select {\tt Generic}.
+	\item Click on the Generic added and set {\tt Baud rate} at {\tt 9600}, {\tt Response time} at {\tt 4s}, {\tt Maximum packet size} at {\tt 2048} and {\tt Delay Hangup} at {\tt 2s 500ms}. In tab {\tt Modem} set {\tt Dial string} to {\tt D10000}.
+	\item Right-click on the Generic and select {\tt PackBusPort}
+	\item --- to be continued
+\end{enumerate}

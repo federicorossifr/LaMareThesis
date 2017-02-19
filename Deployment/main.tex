@@ -1,0 +1,19 @@
+\section{System deployment documentation}
+\paragraph{}
+In this section more attention has been paid to configuration and deployment aspects of the system. Host addresses and ports are shown by the UML diagram in figure \ref{fig:depdiag}. Services' access credentials and information can be found in appendix \ref{appendix:cred}
+\paragraph{} 
+System configuration can be split into following parts:
+\begin{itemize}
+	\item Cable management
+	\item Accessing remote host (provided by Wireless Innovation) via RDP
+	\item Configuring Loggernet to communicate with the AWS
+	\item Scheduling data fetch from AWS and FTP upload to FTP server
+	\item Accessing FTP server
+	\item Configuring and deploying the GSN server on Linux host.
+\end{itemize} 
+\input{./Deployment/cable.tex}
+\input{./Deployment/rdp.tex}
+\input{./Deployment/loggernet_conf.tex}
+\input{./Deployment/loggernet_sch.tex}
+\input{./Deployment/ftp.tex}
+\input{./Deployment/gns.tex}

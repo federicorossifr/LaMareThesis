@@ -1,0 +1,30 @@
+\paragraph{}
+\begin{lstlisting}
+<virtual-sensor name="Lamare_GetFtp" priority="10">
+  <processing-class>
+    <class-name>gsn.vsensor.BridgeVirtualSensor</class-name>
+    <unique-timestamps>true</unique-timestamps>
+    <init-params />
+    <output-structure>
+      <field name="CR1000_2_Table1" type="binary"/>
+    </output-structure>
+  </processing-class>
+  <description>This VS shows files gets from ftp URL</description>
+  <streams>
+    <stream name="inputFtp">
+      <source alias="source" sampling-rate="1" storage-size="1">
+        <address wrapper="ftp">
+          <predicate key="url">192.168.1.10</predicate>
+          <predicate key="username">"username"</predicate>
+          <predicate key="password">"password"</predicate>
+          <predicate key="path">CR1000_2_Table1.dat</predicate>
+          <predicate key="rate">3d</predicate>
+        </address>
+        <query>
+          SELECT source1.TIMED, CR1000_2_TABLE1 FROM source
+        </query>
+      </source>
+    </stream>
+  </streams>
+</virtual-sensor>
+\end{lstlisting}
