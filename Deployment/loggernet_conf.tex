@@ -5,15 +5,20 @@ Connection in local environment is accomplished by a serial RS232 serial connect
 To connect device via serial link user has to install a driver for the serial-to-USB adapter, that can be downloaded from \cite{prol1}.
 \paragraph{Adding device to Loggernet}
 Once the device is connected, user can now open Loggernet and click on {\tt Set-up} in {\tt Main} tab. If it's the first time running Loggernet, it will open the {\tt EZSetup Wizard}, 
-otherwise user has to click on {\tt Add} button located in the tool-bar.
+otherwise user has to click on {\tt Add} button located in the tool-bar (make sure Set-up is running in simplified mode by checking it in the title bar. If not, click on the button {\tt EZ View} on the toolbar).
 \begin{enumerate}
 	\item In {\tt Communication Set-up} section choose CR1000 and go to the next step.
 	\item Then choose connection type ({\tt Direct} if serial or {\tt Phone Modem} if Satellite)
-	\item Then follow instructions on program to find the correct COM port (and satellite SIM number if using satellite connection) to connect with
-	\item Skip {\tt Datalogger settings}  by pressing Next, if using standard parameters (potentially set baud rate at {\tt 9600}).
-	\item Check selected parameters in {\tt Set-up summary}
-	\item Verify parameters in {\tt Communication Test}
-	\item If test passes press {\tt Finish}
+	\item Then follow instructions on program to find the correct COM port (and satellite SIM number if using satellite connection) to connect with.
+	\item Set {\tt Baud rate} at {\tt 9600} and {\tt PakBus Address} at {\tt 1}.
+	\item Skip the following {\tt Datalogger settings} by pressing Next if not using any type of encryption.
+	\item Check choosen parameters in {\tt Set-up summary}
+	\item Verify parameters in {\tt Communication Test} by clicking {\tt Next}
+	\item If test passes, in the following tab set the datalogger clock by clicking {\tt Check Datalogger Clock}
+	\item Select and send a program to the datalogger by clicking on {\tt Select and Send program}
+	\item OPTIONAL Click on {\tt Get table definition} to retrieve table structures from the datalogger as defined in the program
+	\item OPTIONAL Enable {\tt Scheduled collection }  and set the time  and interval for automatic data collection.
+	\item Click {\tt Finish} to close the wizard.
 \end{enumerate}
 \paragraph{}
 Added device can now be seen by pressing {\tt Set-up} in {\tt Main} tab.
@@ -36,5 +41,7 @@ To add a device to remote Loggernet:
 	\item Right-click on PhoneRemote and select {\tt Generic}.
 	\item Click on the Generic added and set {\tt Baud rate} at {\tt 9600}, {\tt Response time} at {\tt 4s}, {\tt Maximum packet size} at {\tt 2048} and {\tt Delay Hangup} at {\tt 2s 500ms}. In tab {\tt Modem} set {\tt Dial string} to {\tt D10000}.
 	\item Right-click on the Generic and select {\tt PackBusPort}
-	\item --- to be continued
+	\item Click on the added PackBusPort and set {\tt Maximum Time On-Line} at {\tt 10m}, {\tt Baud Rate} at {\tt 9600}, {\tt Beacon Interval} at {\tt 1m}, {\tt Extra response time} at {\tt 4s} and {\tt Delay Hangup} at {\tt 2s 500ms}.
+	\item Righ-click on the PackBusPort and select {\tt CR1000}
+	\item Click on the CR1000 and set {\tt PakBus Address} at {\tt 1}, {\tt Packet Size} at {\tt 1000} and {\tt Delay Hangup} at {\tt 2s 500ms}.
 \end{enumerate}
