@@ -1,0 +1,14 @@
+\subsection{Upgrading datalogger firmware}
+\paragraph{Download latest firmware} Latest firmware for the datalogger can be found and downloaderd at \cite{cs4}. It is an auto-extractible EXE archive that extracts the firmware (.obj file) into the following directory {\tt C:/CampbellSci/Lib/OperatingSystems}. Execute it to extract the firmware.
+\paragraph{Device configuration utility} In order to install the firmware on the datalogger, the software Device Configuration Utility has to be installed. It can be found at \cite{cs3}.
+\paragraph{} Once both firmware and software are ready:
+\begin{enumerate}
+	\item Open Device Configuration Utility.
+	\item Connect CR1000 to PC as shown in \ref{subsec:datacable}.
+	\item On the left, select CR1000 and below the communication port where USB to serial converter is attached.
+	\item Click connect and wait for the connection to establish.
+	\item Once connected, select {\tt Backup} from the window menu and click on {\tt Back Up} datalogger.
+	\item In the new dialog, choose backup location and data from datalogger to backup. Wait for the process to be finished.
+	\item Once backup is completed, on the right, click on tab {\tt Send Os}.
+	\item Follow istruction on this tab to perform datalogger upgrade.
+\end{enumerate}
