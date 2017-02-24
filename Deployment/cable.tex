@@ -3,12 +3,12 @@
 In order to give power to CR1000 connect its power port to a 12V DC voltage source.
 \paragraph{Michrosat modem}
 Michrosat modem can be powered on both via 12V DC source and CR1000 voltage source ports. First case is useful when attempting signal quality test from pc without the datalogger.
-The second case is the common deployment scenario. In this case the modem can be connected directly to one of the 12V source ports of the datalogger (high power consumption) or to a switched 12V source port (software-optimized power consumption).
+The second case is the common deployment scenario. In this case the modem can be connected directly to one of the 12V source ports of the datalogger (12V+GND in figure \ref{fig:cr1000}) (high power consumption) or to a switched 12V (SW12+GND in figure \ref{fig:cr1000} source port (software-optimized power consumption).
 \subsection{Cable management for data transfer}
 \label{subsec:datacable}
 \paragraph{PC - CR1000 Connection}
-Use a straight serial rs232 cable (DB9-DB9) to connect PC and CR1000. On the PC side, serial cable has to be connected to a {\tt USB to serial} adapter. On the CR1000 side serial cable has to be connected to the port labeled {\tt RS232 (Not isolated)}.
+Use a straight serial rs232 cable (DB9-DB9) to connect PC and CR1000. On the PC side, serial cable has to be connected to a {\tt USB to serial} adapter. On the CR1000 side serial cable has to be connected to the port labeled {\tt RS232 (Not isolated)} in figure \ref{fig:cr1000}.
 \paragraph{PC - Michrosat2403 Connection}
 Use a straight serial rs232 cable to connect PC and Michrosat modem, using the same serial to usb adapter seen before on pc side.
 \paragraph{CR1000 - Michrosat2403 Connection}
-Use a NULL MODEM male to male serial RS232 cable to connect PC and Michrosat modem. On the CR1000 side, serial cable has to be connected to the port labeled {\tt RS232 (Not isolated)}. In order to obtain a male to male configuration, use a pair of gender changer on a female to female null modem rs232 serial cable.
+Use a NULL MODEM male to male serial RS232 cable to connect PC and Michrosat modem. On the CR1000 side, serial cable has to be connected to the port labeled {\tt RS232 (Not isolated)} in figure \ref{fig:cr1000}. In order to obtain a male to male configuration, use a pair of gender changer on a female to female null modem rs232 serial cable.
