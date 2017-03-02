@@ -1,7 +1,7 @@
 \subsection{Data Table Definition}
 The following piece of code shows the definition of a data table.
 As underlined by {\tt DataInterval} directive, the first data table is stored every 15 minutes, while the second is stored every 60 minutes.
-\begin{lstlisting}
+\begin{lstlisting}[numbers=left, breaklines=true]
 DataTable(Table1,True,-1)
 	DataInterval(0,15,Min,10)
 	Average(1,RGup,FP2,False)
@@ -31,7 +31,7 @@ EndTable
 \clearpage
 \subsection{Swithing modem on}
 The following code shows how the hysteresis control is applied to decide whether the modem can be swtiched on or not.
-\begin{lstlisting}
+\begin{lstlisting}[numbers=left, breaklines=true]
 Dim lowBatTh As Float = 11.50
 Dim highBatTh As Float = 13.20
 
@@ -48,7 +48,7 @@ EndSub
 \end{lstlisting}
 \subsection{Retrieving data from sensors}
 The following code shows the instructions given to the datalogger in order to retrieve data from sensors. Every 60 seconds (specified by the instruction {\tt Scan} the datalogger read measurements from sensors and store them in data table with the instruction {\tt CallTable}
-\begin{lstlisting}
+\begin{lstlisting}[numbers=left, breaklines=true]
 Scan(60,Sec,1,0)
     RealTime(rTime) 
 
@@ -102,4 +102,35 @@ Scan(60,Sec,1,0)
 		CallTable(Table1)
 		CallTable(Table2)
 NextScan
+\end{lstlisting}
+\subsection{Modem-on windows}
+\paragraph{}Following code shows the part of the program that has to edited in order to modify modem-on windows in
+datalogger.
+\begin{lstlisting}[numbers=left, breaklines=true]
+=====> Number of daily modem-on windows
+Const NumWindows = 3 
+/......./
+'Set true to days you want the modem to be switched on
+Monday = true
+Tuesday = true
+Wednesday = true
+Thursday = true
+Friday = true
+Saturday = true
+Sunday = true
+
+=====> First daily window
+WHourStart(1) = 10 'Ora di inizio della Prima Finestra (0-23)
+WMinStart(1) = 31 'Minuto di inizio della Prima Finestra (0-59)
+WNumMin(1) = 30 'Durata in minuti della Prima Finestra
+
+=====> Second daily window
+WHourStart(2) = 13 'Ora di inizio della Seconda Finestra (0-23)
+WMinStart(2) = 31 'Minuto di inizio della Seconda Finestra (0-59)
+WNumMin(2) = 30 'Durata in minuti della Seconda Finestra
+
+=====> Third daily window
+WHourStart(3) = 20 'Ora di inizio della Terza Finestra (0-23)
+WMinStart(3) = 50 'Minuto di inizio della Terza Finestra (0-59)
+WNumMin(3) = 0 'Durata in minuti della Terza Finestra
 \end{lstlisting}

@@ -1,1 +1,21 @@
 \subsection{Scheduling data collection operations from Loggernet}
+Scheduling data collections can be accomplished by synchronizing modem-on windows on the datalogger
+and schedules on remote Loggernet. Note that datalogger has clock set on GMT+1, while Loggernet is set on
+GMT.
+\paragraph{Set modem-on windows on datalogger}
+In order to set modem-on windows on datalogger, the program running on CR1000 has to be edited and re-compiled
+on the datalogger. See appendix \ref{appendix:fcode} to find more information on the code to be edited.
+\paragraph{Set Loggernet's schedules}
+To configure Loggernet's schedules:
+\begin{enumerate}
+	\item Open remote desktop connection as shown in section \ref{subsec:rdp} and start Loggernet if stopped.
+	\item Click on {\tt Set-up} in {\tt Main} tab.
+	\item Select {\tt CR1000} datalogger from the panel on the left.
+	\item On tab {\tt Schedule} check {\tt Scheduled Collection Enabled}
+	\item Set {\tt Time} in order to match one of the modem-on windows just configured on datalogger. NOTE: set the time 5 or more minutes after
+		  modem-on windows start to permit modem to register on the network.
+	\item Set {\tt Collection interval} to any value in days. (Tipically use 3 days interval between collection)
+	\item Set {\tt Primary retry interval} at {\tt 10m} and {\tt Number of primary retries} at {\tt 1}
+	\item Check {\tt Stay on collect schedule}.
+	\item On the dropdown below select {\tt Automatically reset changed tables} and check {\tt Enable automatic hole collection}
+\end{enumearate}
