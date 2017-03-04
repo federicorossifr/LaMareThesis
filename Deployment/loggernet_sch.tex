@@ -18,4 +18,16 @@ To configure Loggernet's schedules:
 	\item Set {\tt Primary retry interval} at {\tt 10m} and {\tt Number of primary retries} at {\tt 1}
 	\item Check {\tt Stay on collect schedule}.
 	\item On the dropdown below select {\tt Automatically reset changed tables} and check {\tt Enable automatic hole collection}
-\end{enumearate}
+	\item Once finished, click on {\tt Apply} at the bottom of {\tt Setup} window.
+\end{enumerate}
+\paragraph{Schedule FTP task}
+Once data collection schedule is set, create a task that forwards data to a remote FTP server.
+\begin{enumerate}
+	\item Open remote desktop connection as shown in section \ref{subsec:rdp} and start Loggernet if stopped.
+	\item Click on {\tt Task master} on {\tt Main} tab.
+	\item Click on {\tt CR1000} under {\tt Tasks}, then click on the button {\tt Add after} below.
+	\item On the right, set {\tt Station Event Type} to {\tt After file closed}.
+	\item Click on {\tt Configure task...} below, a new window will be opened.
+	\item On tab {\tt FTP Settings} check {\tt Enable FTP}. Set following parameters according to appendix \ref{appendix:cred} (service FTP SERVER). Browse {\tt Remote folder} with button on the right and select preferred folder where data files will be uploaded. Confirm with {\tt OK}
+	\item Once finished, click on {\tt Apply} at the bottom of {\tt Task master} windows.
+\end{enumerate}
