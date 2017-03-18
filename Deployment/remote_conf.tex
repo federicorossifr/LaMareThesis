@@ -1,0 +1,26 @@
+\subsection{Configuring device into remote Loggernet}
+\paragraph{}
+Connection from remote environment is accomplished by using the satellite connection infrastructure explained in section \ref{subsec:loggernet}.
+Locally, connect CR1000 to modem as shown in section \ref{subsec:datacable}.
+\paragraph{}
+To add a device to remote Loggernet:
+\begin{enumerate}
+	\item Open remote desktop connection as shown in section \ref{subsec:rdp} and start Loggernet if stopped.
+	\item Click on {\tt Set-up} in {\tt Main} tab.
+	\item Click on {\tt Add Root} on the tool-bar and select {\tt ComPort}.
+	\item In the {\tt Network map} below, click on the just added ComPort and on the right select in {\tt ComPort Connection} {\tt FabulaTech Serial Port Redirector}. Below set {\tt Delay Hangup} at {\tt 500ms} and {\tt Communication Delay} at {\tt 2s}.
+	\item In the {\tt Network map} right-click on the ComPort and select {\tt PhoneBase}.
+	\item Click on the PhoneBase  and set {\tt Maximum baud rate} at {\tt 9600}, {\tt Response Time} at {\tt 2s} and {\tt Delay Hangup} at {\tt 500ms}.
+	\item Right-click on the PhoneBase and select {\tt PhoneRemote}.
+	\item Click on the PhoneRemote  and add the SIM phone number of the CR1000 modem with a delay of {\tt 500ms}.
+	\item Right-click on PhoneRemote and select {\tt Generic}.
+	\item Click on the Generic  and set {\tt Baud rate} at {\tt 9600}, {\tt Response time} at {\tt 4s}, {\tt Maximum packet size} at {\tt 2048} and {\tt Delay Hangup} at {\tt 2s 500ms}. In tab {\tt Modem} set {\tt Dial string} to {\tt D10000}.
+	\item Right-click on the Generic and select {\tt PackBusPort}
+	\item Click on the PackBusPort and set {\tt Maximum Time On-Line} at {\tt 10m}, {\tt Baud Rate} at {\tt 9600}, {\tt Beacon Interval} at {\tt 1m}, {\tt Extra response time} at {\tt 4s} and {\tt Delay Hangup} at {\tt 2s 500ms}.
+	\item Righ-click on the PackBusPort and select {\tt CR1000}
+	\item Click on the CR1000 and set {\tt PakBus Address} at {\tt 1}, {\tt Packet Size} at {\tt 1000} and {\tt Delay Hangup} at {\tt 2s 500ms}.
+	\item On {\tt Data Files} tab click on {\tt Get Table Definitions}. Loggernet will contact the datalogger to retrieve Tables declared in the program.
+	\item Once completed, on the left some tables will appear. Click on {\tt Status} and check {\tt Include for scheduled collection}. Set {\tt File Output Option} to {\tt Append to end of file}. Select {\tt Data Logged Since Last Collection} and check {\tt Collect All On First Collection}
+	\item Repeat setp $16$ for tables Table1 and Table2.
+	\item Once finished, click on {\tt Apply} button on the bottom of {\tt Setup} window.
+\end{enumerate}
