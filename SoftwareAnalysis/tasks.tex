@@ -1,1 +1,20 @@
 \subsection{Tasks and scheduling}
+\label{subsec:tasks}
+\paragraph{Tasks} In a CRBASIC program, main scan, secondary scans and measurement processes
+are identified as Task.
+Every task has its own priority and it is arranged in one of three scheduling queues ordered by priority:
+\begin{enumerate}
+	\item Measurement tasks: have the maximum priority because they are considered like realtime processes.
+	\item SDM tasks: device management tasks issued by the CS OS.
+	\item Processing Tasks: all other tasks.
+\end{enumerate}
+\paragraph{CPU execution mode}
+Datalogger's program can compiled in Sequential Mode or Pipeline 
+(the choice is done by the compiler itself or can be forced using a directive in the program).
+Whithin the first mode intstruction are executed in the order they are written in the program.
+This means there is no reorder of instruction in the CPU, as it happens in Pipeline mode.
+\paragraph{Main and secondary scans}
+Among all the scans, the one identified as "Main Scan" has the higher priority.
+All the other scans can execute once the main scan has finished its internal tasks,
+or when the main scan is not active. This means that in Pipeline mode,a single scan
+can be splitted over multiple executions of the main scan.

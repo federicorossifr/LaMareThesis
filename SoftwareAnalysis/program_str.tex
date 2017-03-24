@@ -1,1 +1,27 @@
 \subsection{CRBASIC program structure}
+\paragraph{}Datalogger's program can be split in three parts:
+\begin{itemize}
+	\item Main scan (or main loop)
+	\item Secondary scans (also called slow sequence scans)
+	\item Data table declarations (plus functions and global variables)
+\end{itemize}
+\paragraph{Main Scan}
+The main scan is located at the first {\tt Scan} instruction after the {\tt BeginProg} directive.
+It contains data measurement and processing along with {\tt CallTable <TableName>} instructions
+that saves data into the table specified.
+\paragraph{Secondary scans}
+Secondary scans,also called slow sequence scans, 
+are ordinary loops marked with the keyword {\tt SlowSequence}.
+In \ref{subsec:tasks} more informations about scan and task scheduling are provided.
+\paragraph{Data table}
+Data tables are declared with the {\tt DataTable} directive. It takes table name and
+trigger variable (in the considered case trigger is always set to true) as arguments.
+The size can be specified, but specifing an auto-sizing table (size=0) has to be preferred.
+\paragraph{} Table columns are enclosed between {\tt DataTable} and {\tt EndTable} directives, together with the "DataInterval"
+directive, that specifies on which time basis the table has to be saved for output
+and the {\tt FieldNames} directive, that specifies column names.
+\paragraph{}Columns are declared by specifing the statistic function 
+to apply to data from {\tt CallTable} directives (e.g Average,Sample,Minimum)
+and the variable from where desired value will be fetched during {\tt CallTable}
+\paragraph{} A particular directive, called {\tt WindVector}, allows to store
+data from pulse sensors like the wind vector used in this scenario.
