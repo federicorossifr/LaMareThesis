@@ -1,1 +1,16 @@
-\subsection{Deploying GNS on Linux host}
+\subsection{Deploying GSN on Linux-Windows host}
+\paragraph{Prerequisites} GSN module has the following dependencies:
+\begin{itemize}
+	\item Java: JDK and JRE.
+	\item Apache Ant for source compilation.
+	\item MySQL Server.
+\end{itemize}
+\paragraph{Source code} GSN source code can be downloaded from: link
+\paragraph{Pre-configuration} With a MySQL client create the user {\tt gsn} protected by the password {\tt gsnpassword}. 
+Re-open connection with that user and create the database {\tt gsn}. This is the default storage configuration contained in {\tt gsn-dev/conf/gsn.xml}
+\begin{lstlisting}[numbers=left, breaklines=true]
+<storage user="gsn" password="gsnpassword" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/gsn" />
+\end{lstlisting}
+\paragraph{Running GSN} Open a command prompt on the project root {\tt gns-dev} and execute 
+{\tt ant gsn} to compile and execute the application. Test the application in a web browser at the link
+{\tt http://127.0.0.1:22001}. You should see the main page showing pre-configured virtual sensors.
