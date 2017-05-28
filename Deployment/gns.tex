@@ -5,12 +5,14 @@
 	\item Apache Ant for source compilation.
 	\item MySQL Server.
 \end{itemize}
-\paragraph{Source code} GSN source code can be downloaded from: link
-\paragraph{Pre-configuration} With a MySQL client create the user {\tt gsn} protected by the password {\tt gsnpassword}. 
-Re-open connection with that user and create the database {\tt gsn}. This is the default storage configuration contained in {\tt gsn-dev/conf/gsn.xml}
+\paragraph{Source code} Source code provided is a custom version of original GSN 
+source code available at \cite{epfl1}
+\paragraph{Pre-configuration} Open a terminal on the root folder and execute the {\tt init.sh} script. It will create
+ default user and database used by the application. The default configuration can be found in {\tt gsn\_dev/conf/gsn\_conf.xml}
 \begin{lstlisting}[numbers=left, breaklines=true]
 <storage user="gsn" password="gsnpassword" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost/gsn" />
 \end{lstlisting}
-\paragraph{Running GSN} Open a command prompt on the project root {\tt gns-dev} and execute 
+\paragraph{Schedule FTP fetch} Open a terminal on the root folder and execute the command {\tt crontab -u your\_username cronfile}. It will schedule the FTP data fetch from LaMare FTP server. At this point everything is configured.
+\paragraph{Running GSN} Open a command prompt on the project root {\tt gsn-dev} and execute 
 {\tt ant gsn} to compile and execute the application. Test the application in a web browser at the link
 {\tt http://127.0.0.1:22001}. You should see the main page showing pre-configured virtual sensors.

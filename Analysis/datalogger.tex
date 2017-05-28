@@ -20,7 +20,7 @@ The datalogger has the role to enable sensors by giving them power and acquiring
 \paragraph{Programming}
 Actions and table definitions are specified in a source file written in a custom version of BASIC called CRBASIC. Then the program is flashed into the datalogger's memory and it's executed when the device is switched on. The code is shown in appendix \ref{appendix:fcode}
 \paragraph{Energy harvesting}
-The main concern about the deployment of the datalogger is the energy supply management; in fact the device has a limited power storage provided by a 12V battery but it has to be energy autonomous. However the datalogger has the capability to harvest energy from its solar panel. So it's possible to code programs that run on the device and respect the following energy constraint \cite{avv1}:
+The main concern about the deployment of the datalogger is the energy supply management; indeed the device has a limited power storage provided by a 12V battery but it has to be energy autonomous. However the datalogger has the capability to harvest energy from its solar panel. So it's possible to code programs that run on the device and respect the following energy constraint \cite{avv1}:
 \begin{equation}
     E_{harvested}(\Delta t) \geq E_{consumed}(\Delta t)
 \end{equation}
