@@ -2,11 +2,11 @@
 \paragraph{What is a GSN \cite{cll1}}
 A Global Sensor Network (GSN) is a web framework that provides an abstraction layer capable of retrieve data from nearly any kind of sensor/logger and present it in various forms such as chart or human readable tables.
 \paragraph{Virtual Sensors}
-From this point of view, every device can be abstracted to a virtual sensor that processes data source inputs and produces an output stream. A virtual sensor can be defined in a XML configuration file where following informations are specified:
+From this point of view, every device can be abstracted to a virtual sensor that processes data source inputs and produces an output stream. A virtual sensor can be defined in a XML configuration file where following information are specified:
 \begin{itemize}
 	\item Output structure
 	\item Set of data input streams containing data source informations
 \end{itemize}
 In \cite{cll1} there is the configuration of La Mare virtual sensor, as shown in appendix \ref{appendix:vsensor}
 \paragraph{The FTP Wrapper}
-The system described before produces data into a FTP Server, so it's necessary to provide a wrapper that encapsulates data received into the GNS standard data model. Then application logic produces output stream as a row of an SQL table.
+The system described before produces data into a FTP Server, so it's necessary to provide a wrapper that encapsulates data received into the GSN standard data model. Then application logic produces output stream as a row of an SQL table.

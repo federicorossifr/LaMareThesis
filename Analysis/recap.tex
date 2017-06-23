@@ -2,9 +2,9 @@
 \paragraph{}
 Figure \ref{fig:depdiag} shows the UML deployment diagram of the whole system.
 \paragraph{}
-The infrastructure stack involved in connection between the automatic weather station and the Wireless Innovation reference-station (headend) is shown in table \ref{stack1}. 
+The infrastructure stack involved in connection between the automatic weather station and the Wireless Innovation reference-station (head-end) is shown in table \ref{stack1}. 
 \paragraph{}
-Standard FTP protocol stack in data transfer between Wireless Innovation headend and FTP remote server is shown in table \ref{stack2}
+Standard FTP protocol stack in data transfer between Wireless Innovation head-end and FTP remote server is shown in table \ref{stack2}
 \begin{table}[]
 \centering
 \begin{tabular}{|l|l|l|}
@@ -16,7 +16,7 @@ Layers            & \textbf{AWS}              & \textbf{Wireless Inn, Headend} \
 \textbf{Data Link}   & Iridium                   & Iridium                        \\ \hline
 \textbf{Physical}    & MiChroSat                 & MiChroSat                      \\ \hline
 \end{tabular}
-\caption{AWS to W.I. Headend infrastructure stack}
+\caption{AWS to W.I. Head-end infrastructure stack}
 \label{stack1}
 \end{table}
 
@@ -24,12 +24,12 @@ Layers            & \textbf{AWS}              & \textbf{Wireless Inn, Headend} \
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
-Layers           & \textbf{Wireless Inn. headend} & \textbf{FTP Server} \\ \hline
+Layers           & \textbf{Wireless Inn. head-end} & \textbf{FTP Server} \\ \hline
 \textbf{Application} & FTP scheduled by Loggernet     & FTP                 \\ \hline
 \textbf{Transport}   & TCP                            & TCP                 \\ \hline
 \textbf{Network}     & IP                             & IP                  \\ \hline
 \end{tabular}
-\caption{W.I Headend FTP data transfer to remote infrastructure stack}
+\caption{W.I Head-end FTP data transfer to remote infrastructure stack}
 \label{stack2}
 \end{table}
 

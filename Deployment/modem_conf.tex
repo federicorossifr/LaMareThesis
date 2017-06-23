@@ -2,10 +2,10 @@
 \paragraph{} Michrosat 2403 modem has to be configured in order to answer automatically incoming calls from remote Loggernet:
 \begin{enumerate}
 	\item Connect modem to power source (battery or CR1000 12V source) and pc as shown in \ref{subsec:datacable}.
-	\item Once connected, check Windows' Device Manager to discover COM port where device is attached, it should display {\tt Prolific USB to Serial adapter}.
+	\item Once connected, check Windows' Device Manager to discover COM port where device is attached, it should display {\tt Prolific USB to Serial adaptor}.
 	\item Open a serial terminal (e.g. Putty) and connect to COM port discovered above.
-	\item Check terminal functionalities by sending {\tt AT} command. It should answer {\tt OK}
+	\item Check terminal functionality by sending {\tt AT} command. It should answer {\tt OK}
 	\item Set auto response after the first ring with {\tt ATS0=1}, it should answer {\tt OK}
-	\item Write configuration in flash memory with {\tt AT\&W0} and select it as startup configuration with {\tt AT\&Y0}
+	\item Write configuration in flash memory with {\tt AT\&W0} and select it as start-up configuration with {\tt AT\&Y0}
 	\item OPTIONAL: if the antenna is connected, check the signal quality with {\tt AT+CSQ}. It should response with a number between 0 (no signal) and 5 (excellent signal)
 \end{enumerate}

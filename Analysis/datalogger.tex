@@ -1,6 +1,6 @@
 \subsection{The Datalogger}
 \paragraph{Basic functions \cite{cmp1}}
-Simplifying, the CR1000 Datalogger can read data from sensors connected to both its digital and analog pins and store them in tables in its flash (EEPROM) memory.
+Simplifying, the CR1000 Datalogger can read data from sensors connected to both its digital and analogical pins and store them in tables in its flash (EEPROM) memory.
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{cr1000_front}
@@ -13,9 +13,9 @@ The datalogger has the role to enable sensors by giving them power and acquiring
     \item Anemometer: Pulse sensor that measures wind speed and direction
     \item Nivometer: Sonic sensor that measures snow height
     \item Albedometer: Solar radiation
-    \item Thermo-Igrometer: Air temperature and humidity
+    \item Therm-Hygrometer: Air temperature and humidity
     \item Pirgeometer: IN/OUT long-wavelength radiation
-    \item Thermistors: Temperature from Thermo-Igrometer shields
+    \item Thermistors: Temperature from Therm-Hygrometer shields
 \end{itemize}
 \paragraph{Programming}
 Actions and table definitions are specified in a source file written in a custom version of BASIC called CRBASIC. Then the program is flashed into the datalogger's memory and it's executed when the device is switched on. The code is shown in appendix \ref{appendix:fcode}
