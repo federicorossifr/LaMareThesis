@@ -2,7 +2,7 @@ SET main=lamarethesis
 @echo off
 cls
 echo PDFLATEX --- 1/5
-pdflatex -quiet %main%.tex 
+pdflatex  %main%.tex 
 echo BIBTEX --- 2/5
 bibtex -quiet %main% >> BIBOUT
 echo PDFLATEX --- 3/5
